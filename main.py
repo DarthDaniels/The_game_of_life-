@@ -2,7 +2,7 @@ import pygame as pg
 
 pg.init()
 
-default = (2400, 1200, 10, 0, 0, 0, 10, 200, 56, 3, 3, 2, 3, 1, 59, 1)
+default = (600, 600, 10, 0, 0, 0, 10, 200, 56, 3, 3, 2, 3, 1, 59, 1)
 LINE_COLOR = (192, 192, 192)
 
 
@@ -108,6 +108,7 @@ while run:
 
     scr.fill([R0, G0, B0])
     show_field(matrix, scr, LINE_COLOR, (R1, G1, B1))
+    if time_is_going: matrix = game(matrix, WORLD_BORDERS)
 
     for changes in change_state(matrix, events):
         matrix[changes[1]][changes[0]] = changes[2]
