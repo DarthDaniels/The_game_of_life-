@@ -11,6 +11,8 @@ def read_settings(settings_file_name):
         data = [int(string.split(sep="=")[-1]) for string in open(settings_file_name, "r").read().split(sep="\n")]
     except ValueError:
         data = default
+    except FileNotFoundError:
+        data = default
     return data
 
 
